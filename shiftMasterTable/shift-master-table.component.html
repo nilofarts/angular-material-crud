@@ -1,0 +1,34 @@
+<div class="col-md-6 user-container">
+ 
+  
+  <table class="table ">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>batchNo</th>
+      <th>batchWgt</th>
+      <th>segment</th>
+      <th>currentStorageLocation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr   (click)="forSelectRow(i)" [class.selected]="i == selectedRow" *ngFor="let s of shiftMasterArray;index as i">
+      <!-- <td>{{s.id}}</td>
+      <td>{{s.batchNo}}</td>
+      <td>{{s.batchWgt}}</td>
+      <td>{{s.segment}}</td>
+      <td>{{s.currentStorageLocation}}</td> -->
+   
+      <td  class="text-center">{{i+1}}</td>
+      <td><input  [readOnly]="!addRowFlag[i]"  [(ngModel)]="s.batchNo"required></td>
+      <td><input [readOnly]="!addRowFlag[i]" [(ngModel)]="s.batchWgt"required></td>
+      <td><input [readOnly]="!addRowFlag[i]" [(ngModel)]="s.segment"required></td>
+      <td><input [readOnly]="!addRowFlag[i]" [(ngModel)]="s.currentStorageLocation"required></td>
+    </tr>
+    </tbody>
+  </table>
+  <div>
+      <button class="btn btn-danger" style="width:100px" (click)="addNewRow()"> Add User</button>
+      <button class="btn btn-danger" style="width:100px" (click)="submit()"> submit</button>
+  </div>
+</div>
